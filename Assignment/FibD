@@ -1,0 +1,39 @@
+#!/bin/bash
+
+typeset -i val=0
+typeset -i ind=2
+
+while [ $ind -le $1 ]
+do
+	SAVED[$ind]=0
+	ind=$(($ind+1))
+done
+
+Fib()
+{
+	typeset -i n=$1
+
+	if [ $n -eq 0 ]
+	then
+		echo 0
+	elif [ $n -eq 1 ]
+	then
+		echo 1
+	elif [ ${SAVED[$n]} -ne 0 ]
+	then
+		echo ${SAVED[$n]}
+	else
+	        typeset -i first=$(($n-1))
+	        typeset -i second=$(($n-2))
+
+	        typeset -i valFirst=$(Fib $first)
+	        typeset -i valSecond=$(Fib $second)
+
+	        val=$(($valFirst+$valSecond))
+		SAVED[$n]=$val	
+
+		echo ${SAVED[$n]}
+	fi
+}
+
+echo $(Fib $1)

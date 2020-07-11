@@ -1,0 +1,84 @@
+The Fibonacci numbers are as follows:
+n:       0   1   2   3   4   5   6   7   etc
+Fib(n):  0   1   1   2   3   5   8   13  etc
+
+The (pseudo-code) standard recursive function to compute Fib(n) is:
+    Fib(n)
+      if (n==0) return 0
+      if (n==1) return 1
+      return Fib(n-1) + Fib(n-2)
+
+1. Write a bash shell program named fibS which takes one command line
+   argument (the value of n ) and prints the value of Fib(n) on stdout.
+   e.g.:
+      >fibS 6
+      8
+      >
+   REQUIRED:
+   -FibS must use a FUNCTION to compute Fib(n)
+   -The function must follow the standard pseudo-code design above
+
+You might notice fibS takes a long time to run, the higher n gets.
+This is because the standard recursive version must repeat 
+calculations. For example, to compute Fib(6), the algorithm above
+must compute Fib(4) twice, Fib(3) three times, Fib(2) five times.
+This wastes time.
+
+Dynamic Programming can be used to reduce run time. The idea of
+dynamic programming is that when Fib(x) is calculated for the first
+time, its value is stored in an array. The next time the function
+needs to compute Fib(x), it checks the array first. If the value
+is there, it is just read from the array (no calculation is performed).
+If Fib(x) is NOT in the array, it must be computed, and then stored
+into the array.
+
+The (pseudo-code) Dynamic Programming function to compute Fib(n) is:
+
+    create array named SAVED and initialize to zeros 
+    Fib(n)
+      if (n==0) return 0
+      if (n==1) return 1
+      if ( SAVED[n] != 0 ) return SAVED[n]
+      SAVED[n] =  Fib(n-1) + Fib(n-2)
+      return SAVED[n]
+
+2. Write a bash shell program named fibD which takes one command line
+   argument (the value of n ) and prints the value of Fib(n) on stdout.
+   e.g.:
+   >fibD 6
+   8
+   >
+   REQUIRED:
+   -FibD must use a FUNCTION to compute Fib(n)
+   -The function must follow the dynamic-programming pseudo-code design above
+
+3. Write a bash shell program named assign1 which takes two command line 
+   arguments, x and y. assign1 prints a table comparing the running time 
+   of fibS and fibD for values from x to y. 
+   e.g.:
+   >assign1 13 16
+        time in seconds
+n       FibS(n) FibD(n) 
+-       ------- ------
+13      0.4s      0.2s
+14      0.8s      0.4s
+15      0.12s     0.6s
+16      1.10s      0.9s
+
+
+Note: Your times will be different than those in the above chart.    
+Your times can have any format you wish (number of decimals, etc).
+
+You may use whatever linux command you wish to time the programs.
+/usr/bin/time is one such command (see man time).  If you use time, 
+note that the sum of the user + system time is the overall CPU time 
+used by the timed program.
+
+Any measure of time and units are acceptable (such as seconds, 
+microseconds, clock time, etc.) as long as they are the same for
+both FibS and FibD.
+
+
+Submit:
+FibS, FibD, assign1
+
