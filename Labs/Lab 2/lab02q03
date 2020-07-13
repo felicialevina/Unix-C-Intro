@@ -1,0 +1,3 @@
+#!/bin/bash
+ls -ld /home/flevina/cps393/labs/lab02/myInfo.txt
+ls -ld ~/cps393/labs

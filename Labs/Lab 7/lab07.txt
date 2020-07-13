@@ -1,0 +1,55 @@
+
+Write a C program as follows.
+
+INPUT:
+
+  Program expects N+1 lines of input. The first line is some non-negative 
+  integer, N.  The remaining N lines each contain an integer.
+  Assume the user enters proper input.  For example, the files in1, in2, 
+  in3, and in4 all contain proper input.
+
+OUTPUT:
+
+  The program outputs a table such as the following, where x is the maximum
+  value of the N integers, n is the minimum value, t is the total, and a is
+  the average. Note that the values MUST be lined up using tabs "\t":
+  ----------------------------------------
+  Number Processed:       N
+  Maximum:                x
+  Minimum:                n
+  Total:                  t
+  Average:                a
+  ----------------------------------------
+
+EXIT CODE VALUE:
+  Program exits with 1 if N was greater than zero.
+  Program exits with 0 if N was zero.
+
+FORMATTING:
+  Make your code as readable as possible by indenting appropriately.
+
+FUNCTIONS and FILES:
+  The main function is in file lab07M.c
+  The printTable function is in file lab07F.c
+  The printTable function prototype is in file lab07F.h
+
+EXAMPLE:
+A sample executable program is given in program: lab07Solution
+Here is an example of running it using input from file in1
+>lab07Solution <in1
+--------------------------------------------
+Number Processed:       7
+Maximum:                564
+Minimum:                -9
+Total:                  867
+Average:                123.857143
+--------------------------------------------
+>
+
+Submit:
+  lab07M.c   
+  lab07F.c   
+  lab07F.h   
+  lab07      (the executable program)
+
+

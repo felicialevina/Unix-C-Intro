@@ -1,0 +1,172 @@
+<pre>
+CPS393 LAB 02: 
+   Glob constructs and commands:  cd, ls, pwd, cp, mkdir, vim, chmod, grep
+
+------------------------------------
+ Part 1
+------------------------------------
+
+1. Move around directories, list entries in directories, and verify current directory
+   using:  cd, ls, pwd commands as follows:
+
+   Move into your home directory:  cd
+   Move into the course directory: cd /usr/courses/cps393/dwoit/
+   List the entries there:         ls
+   Change into the labs directory  cd labs
+   List the entries there:         ls
+   Change into the first lab       cd lab01
+   List the entries there:         ls
+
+   Change back into your HOME directory:  cd
+   Move back-and-forth between your home directory and the preivous directory
+   (/usr/courses/cps393/dwoit/labs/lab01) by using the following command over and over:
+   cd -
+   Each time you change directories, verify you are in the correct directory by
+   using the following command:
+   pwd
+
+2. Use mkdir to create directories as follows:
+   Move into your home directory:  cd
+   Verify you are there:           pwd
+   Make directory cps393:          mkdir cps393
+   Verify it was created:          ls
+   Move into dir cps393:           cd cps393
+   Verify you are there:           pwd
+   Make dir labs:                  mkdir labs
+   Verify it was created:          ls
+   Move into dir labs:             cd labs
+   Make directories lab01, lab03, lab04, ... lab09:
+                                   mkdir lab01 lab02 lab03 lab04 lab05 lab06 lab07 lab08 lab09
+   Verify they were created:       ls
+   Move into lab02:                cd lab02
+
+
+3. Use cp to copy file(s):
+   Move into the lab02 directory in the course account:
+                                   cd /usr/courses/cps393/dwoit/labs/lab02
+                                   pwd
+                                   ls
+   Move into your own lab02 dir:   cd ~/cps393/labs/lab02
+   Verify you are there:           pwd
+   Copy file myInfo.txt from the course lab02 dir into your own lab02 dir:
+            cp /usr/courses/cps393/dwoit/labs/lab02/myInfo.txt .
+   Verify it was copied over:      ls
+   Copy file vimTutorial.txt from your home dir into your lab01 dir:
+                                   cd
+                                   ls
+                                   cp vimTutorial.txt cps393/labs/lab01/. 
+   Verify your lab01 dir contains vimTutorial.txt and your lab02 dir contains myInfo.txt 
+                                   cd
+                                   cd cps393/labs
+                                   pwd
+                                   ls lab01
+                                   ls lab02
+   If they're not there, repeat the above.
+
+
+4. Fill in myInfo.txt file:
+   Move into your lab02 dir:       cd 
+                                   cd cps393
+                                   cd labs/lab02
+                                   pwd
+                                   ls
+   Edit myInfo.txt:                vim myInfo.txt
+   NOW USE VIM TO FILL IN YOUR NAME, SID, LOGIN, WHERE INDICATED, LEAVING
+   A SPACE AFTER EACH COLON
+
+
+
+5. Look at the man page for the ls command:  man ls
+   Find an option of the "ls" command that lists directory contents so that color is 
+   used to distinguish file types. 
+
+   Remember: when you're in a man page, "space bar" goes down a page, "b" goes back up a page,
+   "enter" goes down one line, "/abc" searches for the string "abc", "n" searches for the
+   next "abc", "q" quits the man page.
+
+
+------------------------------------
+ Part 2
+------------------------------------
+
+1. Move into your cps393 directory 
+   From within cps393, do the ls command with the option you found above (so the contents 
+   will be listed in color.)
+   Use output redirection (the ">" character) to capture the output of this ls command into
+   a file named lab02q01
+
+2. Use chmod to change some permissions on your files/dirs as follows:
+   file myInfo.txt has permissions rw- for user, --x for group, and --- for other.
+   directory labs has permissions  rwx for user, r-x for group, and --- for other.
+   
+3. Move into your home directory and verify you're there.
+
+   From within your home directory, use the ls command to get a long listing for 
+   myInfo.txt and labs as follows:
+   Specify myInfo.txt using an ABSOLUTE path name. 
+   Specify labs       using an RELATIVE path name. 
+   Your command should look like the following (with ### replaced appropriately)":
+   ls -ld ######myInfo.txt ######labs
+   Use the mouse to copy and paste the actual ls command you used into file lab02q03:
+      -"select" whole ls command with the mouse so it's hilighted (which is "copy" in putty). 
+      -vim lab02q3
+      -open a new line: o
+      -right-click mouse (which is "paste" in putty)
+      -press escape a couple of times
+      -:wq to save and exit
+
+   Use vim to edit lab02q03 again and add the following at the top to turn it into a 
+   shell program:
+#!/bin/bash
+
+4. Use output redirection (the ">") to capture the OUTPUT from your ls command from
+   question 3, and put it into file lab02q04
+
+5. Copy the whole directory  /usr/courses/cps393/dwoit/labs/lab02/testfiles into your
+   own filespace UNDER your lab02 dir. 
+
+6.  Write a shell program named lab02q06 as follows.
+    The shell program uses glob constructs and ls to list all entries that have 
+    2 or more dots "." in their name. 
+     If you run your program from within your testfiles directory, it should list 
+     these files (in any order):
+     a.b.c  a.b.c.d  a.bbb.c
+
+7.  Write a shell program named lab02q07 as follows.
+    The shell program uses glob constructs to list all files ending in the string ".txt"
+    If you run your program from within your testfiles directory, it should list files:
+    u894g.txt  xyz.txt
+   
+8.  Write a shell program named lab02q08 as follows.
+    The shell program uses grep to find all lines of all files that contain the string 
+    "winter" with letters in any case (e.g., winter, or wiNTer, etc).
+    If you run your program from within your testfiles directory, it should show: 
+    abcdtxt: lfj; ak winter alksdjf 
+    try1.aaa:The Wintertime lab
+    u894g.txt: lfj; ak winter alksdjf 
+    xyz:The WINTER lab
+
+9.  Copy your lab02q08 to file lab02q09 and change lab02q9 so that instead of
+    searching for the string "winter" in any case, it searches for a string
+    given on the command line (in any case). For example, running the following
+    should produce the same output as q8 above:
+    ./lab02q9 winTER
+
+10.  Use the submit command (submit-cps393dwoit) to submit the following files, 
+    one at a time: 
+    lab02q03
+    lab02q04
+    lab02q06
+    lab02q07
+    lab02q08
+    lab02q09
+    myInfo.txt
+
+11. Use the check-submit-cps393dwoit command to verify the files got submitted.
+    The output shows all the files in your "submit directory". 
+
+RESUBMITTING:
+      Re-submit a file at any time be re-running the submit.
+      Each newly submitted file will clobber any previously submitted file of
+      the same name.
+</pre>

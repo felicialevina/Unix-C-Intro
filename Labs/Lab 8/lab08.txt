@@ -1,0 +1,42 @@
+
+Write a program called lab08.c that 
+  -prompts the user for a character and then a string.
+  -REMOVES all occurrences of that character from the string, and 
+  -prints the changed string forwards and backwards.
+
+The program must: 
+  -use a macro (#define) to set MAX to 100 (maximum length of string is 99).
+  -define and use functions:
+     void squeeze( char c, char S[] ) ; /* removes all occurrences of c from S */
+     void printBackwards( char S[] ) ;  /* prints string in reverse */
+  -exit or return with code 0 (zero)
+  -behave exactly like given program lab08 
+
+The program may: 
+  -use gets if you wish
+
+You may Assume:
+   -user always gives correctly formatted input.
+
+Note:
+   -when you pass an array/string to a function, any changes the function
+    makes to that array/string are permanent.
+
+---------------------------------------------------------------------------
+Examples of running given lab08:
+
+>./lab08
+Enter a character:p
+Enter a string max 99 characters:Peter Piper picked a peck of pickled peppers!
+  FWD:Peter Pier icked a eck of ickled eers!:
+  BWD:!sree delkci fo kce a dekci reiP reteP:
+>
+>./lab08
+Enter a character:X
+Enter a string max 99 characters:XXXXXXXXXXXXXXXXXXXX
+  FWD::
+  BWD::
+>
+
+Submit: lab08.c 
+        lab08

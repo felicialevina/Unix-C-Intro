@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -e "s/dog/DOG/" -e "s/[0-9]*$/X/" out1

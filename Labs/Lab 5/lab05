@@ -1,0 +1,58 @@
+#/!bin/bash
+file1=$1
+file2=$2
+fName=$(echo $0 | cut -c3-)
+
+if [ "$file1" = "" -a "$file2" = "" ]
+then
+	echo "$fName: expecting 2 or more files"
+	exit 1
+fi
+
+if [ -e "$file1" -a -f "$file1" -a -r "$file1" -a -e "$file2" -a -f "$file2" -a -r "$file2" ]
+then
+	typeset -i file1wc=`wc -l <$file1`
+	typeset -i file2wc=`wc -l <$file2`
+
+	if [ $file1wc -ge $file2wc ]
+	then
+		echo "file $file2 has fewest lines ($file2wc)"
+		echo "file $file1 has most lines ($file1wc)"
+
+	else
+		echo "file $file1 has fewest lines ($file1wc)"
+		echo "file $file2 has most lines ($file2wc)"
+	fi
+exit 0
+fi
+
+if [ -e "$file1" -a -f "$file1" -a -r "$file1" ]
+then
+	if [ ! -e "$file2" -o ! -f "$file2" -o ! -r "$file2" ]
+	then
+        	typeset -i file1wc=`wc -l <$file1`
+        	echo "file $file1 has fewest lines ($file1wc)"
+        	echo "file $file1 has most lines ($file1wc)"
+	fi
+exit 0
+fi
+
+if [ -e "$file2" -a -f "$file2" -a -r "$file2" ]
+then
+	if [ ! -e "$file1" -o ! -f "$file1" -o ! -r "$file1" ]
+	then
+        	typeset -i file2wc=`wc -l <$file2`
+        	echo "file $file2 has fewest lines ($file2wc)"
+        	echo "file $file2 has most lines ($file2wc)"
+	fi
+exit 0
+fi
+
+if [ ! -e "$file1" -o ! -r "$file1" -o ! -f "$file1" ]
+	then
+		if [ ! -e "$file2" -o ! -r "$file2" -o ! -f "$file2" ]
+		then
+        		echo "$fName: no valid files"
+		fi
+exit 1
+fi

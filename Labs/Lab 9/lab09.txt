@@ -1,0 +1,71 @@
+
+Q1:
+Write a program named inc.c that takes 1 command line argument,
+which is expected to be an integer.
+
+The program loops. Each loop, it:
+  -prompts the user for an integer.
+  -uses function incF to increment the integer by the amount 
+  given in the command line argument.
+  -prints the modified integer.
+  
+e.g.,
+> gcc -o inc inc.c
+> ./inc 3
+Enter integer: 5            #user entered the 5
+8
+Enter integer:  10          #user entered the 10
+13
+Enter integer:              #user did ctrl-D
+>
+> ./inc -2
+Enter integer: 5            #user entered the 5
+3
+Enter integer:  -10         #user entered the -10
+-12
+Enter integer:              #user did ctrl-D
+>
+
+ERROR CHECKING:
+If the command line argument is invalid, your program should 
+print an appropriate error message on standard error (including 
+the program name, which must be printed using the "zero-th" command
+line argument).
+Things you must check: 
+  -exactly 1 command line argument
+  -command line argument is an integer (may be negative)
+ 
+EXIT:
+Your program exits with 1 if any problem with the command line 
+argument (missing, or not an int), or with 0 if successful.
+
+ASSUME:
+The user enters proper integers on stdin in the loop. (No
+error checking required for these.)
+
+FUNCTIONS:
+You must create/use function named incF in your program.
+It must use this prototype:
+void incF ( int *num , int incval ) ;
+
+Function incF will increment the value at address num by incval.
+Note that incval could be negative.
+
+e.g., 
+  After this code, x has the value 8 (8 is printed).
+  int x=5;
+  incF( &x, 3); 
+  printf("%d",x);
+
+  After this code, x has the value 2 (2 is printed).
+  int x=5;
+  incF( &x, -3); 
+  printf("%d",x);
+
+READING INPUT:
+  Do not use gets. Use a safe method, such as fgets.
+  You may assume the user never inputs an integer that
+  has more than 98 digits (and possibly a minus sign).
+
+Submit: inc.c
+        inc

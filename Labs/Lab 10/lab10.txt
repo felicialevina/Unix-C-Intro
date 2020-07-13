@@ -1,0 +1,60 @@
+
+Write a program named addTo.c that takes 3 command line arguments
+as follows:
+ -The first argument is an integer.
+ -The second argument is a readable file (which contains some number 
+  of integers, one per line.
+ -The third argument is the name of a file that can be opened for write.
+
+After your program finishes, the second file will be a copy of
+the first, except that each integer in the file will be increased
+by X, where X is the the integer given in the first command line argument.
+
+e.g.,
+> gcc -o addTo addTo.c
+> cat file1
+2
+3
+6
+100
+> ./addTo 2 file1 file2
+> cat file2
+4
+5
+8
+102
+> ./addTo -5 file1 file2
+> cat file2
+-3
+-2
+1
+95
+> ./addTo 3 
+usage: ./addTo <integer> <infile> <outfile>
+>
+
+ERROR CHECKING:
+If any input is invalid, your program should print an appropriate
+error message on standard error (including the program name).
+Things you must check: 
+  -exactly 3 command line arguments
+  -first command line argument is an integer (must use function
+   isInt below to determine this).
+  -second command line argument is a readable file
+  -third command line argument is the name of a file that can be
+   opened for write
+
+ASSUME:
+  -the first file contains appropriate input, which is:
+    Zero or more lines.  Each line contains one integer.
+
+FUNCTIONS:
+  -you must create/use at least the following function:
+       int isInt ( char *S ) ;
+   Function isInt returns: 
+    -true  (1) if string S contains only digits (with perhaps
+     a '-' at the start to indicate a negative integer).
+    -false (0) otherwise
+
+Submit: addTo.c
+        addTo

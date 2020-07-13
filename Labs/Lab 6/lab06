@@ -1,0 +1,19 @@
+#!/bin/bash
+typeset -i value=0
+typeset -i result=0
+
+while read operation value ; do
+	if [ "$operation" = "+" ]
+	then
+		result=result+$value
+	elif [ "$operation" = "-" ]
+	then
+		result=result-$value
+	else
+		echo "$(echo $0 | cut -c3-): invalid input"
+		exit 1
+	fi
+done
+
+echo "Result: $result"
+exit 0

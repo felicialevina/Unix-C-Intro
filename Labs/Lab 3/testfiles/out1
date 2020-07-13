@@ -1,0 +1,7 @@
+-rwx------ 1 dwoit cps393    0 Jan 21 13:14 a8
+drwx------ 2 dwoit cps393 4096 Jan 21 14:31 dir1
+drwxrwx--- 2 dwoit cps393 4096 Jan 21 12:52 dir2
+-rw-rw---- 1 dwoit cps393    0 Jan 21 12:51 dog1
+-rwx------ 1 dwoit cps393    0 Jan 21 12:51 dog11
+-rw-rw---- 1 dwoit cps393    0 Jan 21 12:51 dog3987
+-rwxrw---- 1 dwoit cps393    0 Feb  3  2011 out1

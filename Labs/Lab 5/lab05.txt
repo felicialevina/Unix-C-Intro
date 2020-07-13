@@ -1,0 +1,42 @@
+
+--------------------------------------------------------------------
+NOTE: In Winter 2018, Do Lab05 in the week of Oct 15 (after study week).
+--------------------------------------------------------------------
+
+
+CPS393 Lab05 
+
+1. Write a shell program named lab05 that takes 2 or more command line arguments.
+   If there are no "issues", then the program prints this message on standard output:
+       file xx has fewest lines (f)
+       file yy has most lines (m)
+
+   where 
+     xx and yy are 2 files from the command line arguments, and 
+     f is the number of lines of file xx, and 
+     m is the number of lines of file yy
+
+   Possible "issues":
+   -----------------
+   -0 or 1 command line arguments are given.
+    In this case, print the following on standard error, where "lab05" is the name of
+    the program, and is NOT hardcoded:
+    lab05: expecting 2 or more files 
+
+   -no valid files are given on the command line arguments (e.g., files do not
+    exist, or are not readable, or arguments were directories, not files, etc.)
+    In this case, print the following on standard error, where "lab05" is the name of 
+    the program, but is NOT hardcoded:
+    lab05: no valid files
+
+    -only one valid file is given on the command line (e.g., all-but one of the files 
+    specified were valid files, or directories, etc.)
+     In this case, print the 2 lines as in "no issues" above, but the same file is
+     listed for both xx and yy.
+
+    Exit codes:
+    1 if something was printed on standard error
+    0 otherwise
+
+
+2. Submit lab05 

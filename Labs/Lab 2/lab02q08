@@ -1,0 +1,3 @@
+#!/bin/bash
+cd testfiles
+grep -i "winter" a.b a.bbb.c a.b.c a.b.c.d abcdtxt dwoit.xyz skeleton_index.html try11b.xyz try1.aaa u894g.txt xyz xyz.txt

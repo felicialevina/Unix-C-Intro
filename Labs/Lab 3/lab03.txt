@@ -1,0 +1,117 @@
+CPS393 Lab 02A
+
+-------------------------------------------------------------------------------
+EXAMPLES:
+
+In the following questions, the examples assume you are working in directory
+/usr/courses/cps393/dwoit/labs/lab03/testfiles 
+A long listing of this directory is:
+
+total 24
+-rwxr-xr-- 1 dwoit cps393    0 Sep 21 20:23 a8*
+-rw-r-xr-- 1 dwoit cps393    0 Sep 21 20:27 BIRD*
+drwxr-xr-- 2 dwoit cps393 4096 Sep 21 20:23 dir1/
+drwxr-xr-- 2 dwoit cps393 4096 Sep 21 20:23 dir2/
+-rw-r-xr-- 1 dwoit cps393    0 Sep 21 20:23 DOG*
+-rw-r-xr-- 1 dwoit cps393    0 Sep 21 20:23 dog*
+-rw-r-xr-- 1 dwoit cps393    0 Sep 21 20:23 dog1*
+-rwxr-xr-- 1 dwoit cps393    0 Sep 21 20:23 dog11*
+-rw-r-xr-- 1 dwoit cps393    0 Sep 21 20:23 dog3987*
+drwxr-xr-- 2 dwoit cps393 4096 Sep 21 20:24 DOGDIR/
+drwxr-xr-- 2 dwoit cps393 4096 Sep 21 20:24 DOG_DIR/
+-rwxr-xr-- 1 dwoit cps393    0 Sep 21 20:23 mouse*
+-rwxr-xr-- 1 dwoit cps393  345 Sep 21 20:23 out1*
+drwxr-xr-- 2 dwoit cps393 4096 Sep 21 20:31 somedir/
+
+
+PROGRAM NAMES:
+
+Make a separate shell program to answer each of the questions below. Your programs
+should be named lab03Qx where x is the question number.  e.g., The shell program to 
+answer question 4 below is named: lab03Q4
+
+PROGRAM CONTENTS:
+
+When you are directed to use a specific command, such as "ls", you may also use any
+options required, e.g., "ls -l", or "ls -lt", etc.
+
+Remember the first line of each shell program must be:
+#!/bin/bash 
+
+-------------------------------------------------------------------------------
+
+1. List all entries (files and directories) in the current directory
+   whose names contain ONLY upper-case letters. Directories must have a "/" appended.
+   You must use ls piped to grep 
+
+   Output should be: 
+BIRD
+DOG
+DOGDIR/
+
+2. Show a long listing for the second newest FILE (not directory) in the current directory.
+   Your shell program must answer the question using the following line (with XXX changed 
+   to whatever you need to answer the question).
+   ls XXX | grep XXX | head XXX 
+   HINT: The ls command should use an option that lists entries from newest to oldest
+         The grep should select only files by looking for a "-" at the start of the line.
+
+   Output should be:
+-rw-r-xr-- 1 dwoit cps393    0 Sep 21 20:27 BIRD
+
+
+3. Use find to list all files (not directories) in the current directory for which user 
+   has x perms. Hint: use the -type and -perm options for find.
+   Output should be:
+   ./dir1/x
+   ./a8
+   ./dog11
+   ./mouse
+   ./out1
+
+
+4. Your shell program displays the file /usr/courses/cps393/dwoit/labs/lab03/testfiles/out1
+   except that: 
+       -all occurrences of the string "dog" are changed to upper-case.
+       -all occurrences of strings of digits (of any length) at the end of a line 
+           are changed to a single X
+    Your solution must use one or more sed commands.
+
+    Output should be:
+    -rwx------ 1 dwoit cps393    0 Jan 21 13:14 aX
+    drwx------ 2 dwoit cps393 4096 Jan 21 14:31 dirX
+    drwxrwx--- 2 dwoit cps393 4096 Jan 21 12:52 dirX
+    -rw-rw---- 1 dwoit cps393    0 Jan 21 12:51 DOGX
+    -rwx------ 1 dwoit cps393    0 Jan 21 12:51 DOGX
+    -rw-rw---- 1 dwoit cps393    0 Jan 21 12:51 DOGX
+    -rwxrw---- 1 dwoit cps393    0 Feb  3  2011 outX
+
+
+5. Your shell program lists the userids of all the people who have logged into the current 
+   machine on a particular day of the week. The day is supplied as a command-line argument 
+   to your shell program.
+   For example, if I ran your program as follows:  ./lab03Q5 Sun
+   then your program would give a list of userids of those people who have ever logged
+   into the machine on a Sunday. No userid should be listed more than once.
+   Remember that the command-line argument is "$1" in your code. 
+
+   I ran the program on a certain machine as follows:  ./lab03Q5 Sun
+   and it produced a list of output such as:
+    aabhari
+    aferworn
+    allam
+    dwoit
+    ktman
+    mes
+    vmisic
+
+    HINTS: 
+      -use last to list everyone who has ever logged into the machine
+      -use grep to list only those logins that occurred on a certain day ($1)
+      -use cut to keep only the userid (columns 1 to 8)
+      -use sort to sort the userid list
+      -use uniq to eliminate duplicates from the userid list
+
+
+
+6.  Submit all your shell programs: lab03Q[1-5]
